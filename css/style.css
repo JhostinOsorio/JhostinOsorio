@@ -1,0 +1,647 @@
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Raleway'), url(../fonts/Raleway-Regular.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Raleway'), url(../fonts/Raleway-Medium.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Raleway'), url(../fonts/Raleway-SemiBold.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Raleway'), url(../fonts/Raleway-Bold.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Raleway'), url(../fonts/Raleway-ExtraBold.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url(../fonts/Roboto-Regular.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Roboto'), url(../fonts/Roboto-Medium.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Roboto'), url(../fonts/Roboto-Bold.ttf) format('truetype');
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+
+    --main-color: hsl(224, 67%, 51%);
+    --contrast-color: #FFF;
+
+    /* Fonts */
+
+    --font-title: 'Raleway', sans-serif;
+    --font-text: 'Roboto', sans-serif;
+    font-size: 16px;
+    --font-color-title: #444;
+    --font-color-text: #666;
+
+    /* Header */
+
+    --header-height: 3rem;
+
+    /* Nav */
+
+    --nav-width: 200px;
+    --nav-height: calc(100vh - var(--header-height));
+    
+    /* Buttonn bar (Toggle) */
+
+    --toggle-width: 24px;
+    --toggle-height: 22px;
+    --toggle-line-height: 4px;
+    --toggle-line-border-radius: 4px;
+    --toggle-boton-transition: transform .3s ease-out;
+    --toggle-boton-pseudo-elements-transition: transform .3s ease-out, top .3s ease-out, bottom .3s ease-out;
+
+    /* Banner */
+
+    --banner-height: 400px; 
+
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+    margin-top: 3rem;
+}
+body {
+    min-height: 200vh;
+    font-family: var(--font-text);
+    font-size: 1rem;
+    color: var(--font-color-text);
+}
+
+/* ===================== HEADER ===================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--contrast-color);
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+.wrapper {
+    max-width: 90%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.flex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    height: inherit;
+    color: var(--main-color);
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+}
+.logo__img {
+    height: 90%;
+}
+.main-nav {
+    position: fixed;
+    top: calc(var(--header-height));
+    left: 0;
+    z-index: 1000;
+    width: var(--nav-width);
+    height: var(--nav-height);
+    box-shadow: 0 4px 4px rgba(0,0,0,0.4);
+    transform: translateX(-150%);
+    transition: var(--toggle-boton-transition);
+    background-color: var(--contrast-color);
+}
+.main-nav--active {
+    transform: translateX(0);
+}
+.menulist {
+    list-style-type: none;
+    padding-top: .5em;
+}
+.menulist__link {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: .5em;
+    color: var(--main-color);
+    font-weight: 700;
+}
+.button-toggle {
+    position: relative;
+    width: var(--toggle-width);
+    height: var(--toggle-height);
+    cursor: pointer;
+    transition: var(--toggle-boton-transition);
+}
+.toggle-line {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: var(--toggle-line-height);
+    background-color: var(--main-color);
+    border-radius: var(--toggle-line-border-radius);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: var(--toggle-boton-transition);
+}
+.button-toggle::before,
+.button-toggle::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: var(--toggle-line-height);
+    left: 0;
+    background-color: var(--main-color);
+    border-radius: var(--toggle-line-border-radius);
+    transition: var(--toggle-boton-pseudo-elements-transition);
+}
+.button-toggle::before {
+    top: 0;
+}
+.button-toggle::after {
+    bottom: 0;
+}
+.active::before {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+.active::after {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+.button-toggle.active {
+    transform: rotate(360deg);
+}
+.button-toggle.active .toggle-line {
+    transform: scaleX(0);
+}
+
+/* ===================== BANNER ===================== */
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: var(--banner-height);
+    background-image: url(../images/banner-1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: banner 10s linear infinite;
+}
+
+/* Animation banner */
+
+@keyframes banner {
+    0% {background-image: url(../images/banner-1.jpg);}
+    20% {background-image: url(../images/banner-1.jpg);}
+    25% {background-image: url(../images/banner-2.jpg);}
+    45% {background-image: url(../images/banner-2.jpg);}
+    50% {background-image: url(../images/banner-3.jpg);}
+    70% {background-image: url(../images/banner-3.jpg);}
+    75% {background-image: url(../images/banner-4.jpg);}
+    95% {background-image: url(../images/banner-4.jpg);}
+    100% {background-image: url(../images/banner-1.jpg);}
+}
+
+.background-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right,rgba(13, 32, 97, 0.7), rgba(12, 71, 99, 0.7));
+}
+
+.background-banner::before {
+    padding: .5em;
+    content: 'Bienvenido a mi sitio web';
+    color: var(--contrast-color);
+    font-size: 1.5rem;
+    font-family: var(--font-title);
+    text-align: center;
+}
+.background-banner::after {
+    padding: .5em 1.5em;
+    content: 'Te inivito a revisarlo para que me conozcas un poco más.';
+    text-align: center;
+    color: var(--contrast-color);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* ===================== MAIN ===================== */
+
+.main {
+    padding-top: 2em;
+}
+
+/* I am */
+
+.i-am__wrapper {
+    display: flex;
+    flex-direction: column;
+    border-top: 3px solid var(--main-color);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: .5em;
+    width: 80%;
+}
+
+.i-am__description {
+    margin-top: 1em;
+}
+
+.i-am__img {
+    display: block;
+    width: 100%;
+}
+
+.description__title {
+    font-family: var(--font-title);
+    color: var(--font-color-title);
+}
+
+.description__text {
+    line-height: 1.5em;
+    margin-top: 1em;
+}
+.btn {
+    margin-top: 1em;
+    display: inline-block;
+    text-decoration: none;
+    padding: .5em 1em;
+    border-radius: .25em;
+}
+.btn-primary {
+    background-color: var(--main-color);
+    color: var(--contrast-color);
+    border: 2px solid var(--main-color);
+    transition: background-color .3s ease-out,
+                color .3s ease-out,
+                font-weight .3s ease-out;
+}
+.btn-primary:hover {
+    background-color: var(--contrast-color);
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+/* Technologies */
+
+.technologies {
+    background-image: linear-gradient(to right, rgba(21, 83, 124), rgba(26, 88, 182));
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-top: 3em;
+}
+.technologies__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.technologies__title {
+    color: var(--contrast-color);
+    font-family: var(--font-title);
+    text-align: center;
+    margin-top: .5em;
+    margin-bottom: .75em;
+}
+.card {
+    background-color: var(--contrast-color);
+    border-radius: .25em;
+    overflow: hidden;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    cursor: default;
+    max-width: 400px;
+    width: 90%;
+}
+.card--shadow {
+    box-shadow: 0 0 .25em rgba(0,0,0,0.4);
+}
+.card__graphic {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+.card__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .3s ease-out;
+}
+.card__body {
+    padding: 1em 1.5em 2em;
+}
+.card__title {
+    font-size: 1.35rem;
+    margin-top: .25em;
+    margin-bottom: .75em;
+}
+.card__description {
+    line-height: 1.5;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.card__list {
+    list-style-type: none;
+}
+.card__item {
+    margin-bottom: .45em;
+}
+.card__item::before {
+    position: relative;
+    top: .075em;
+    content: url(../images/check.svg);
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: .5em;
+}
+
+/* Projects */
+
+.projects {
+    padding-top: 3em;
+}
+
+.projects__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects__title {
+    font-family: var(--font-title);
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.75em;
+}
+
+/* ===================== FOOTER ===================== */
+
+.footer {
+    background-color: #222;
+    margin-top: 1em;
+}
+
+.copy-right {
+    text-align: center;
+    color: white;
+    padding: 1em;
+}
+
+/* ===================== REDES SOCIALES ===================== */
+
+.redes {
+    position: fixed;
+    bottom: 1.5em;
+    right: 1em;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    background-image: linear-gradient(to right, rgb(21, 108, 124), rgb(26, 146, 182));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    animation: redes ease-in-out .5s infinite alternate-reverse;
+}
+.redes--static {
+    animation: none;
+}
+.redes::before,
+.redes::after{
+    position: absolute;
+    content: '';
+    display: block;
+    height: 6px;
+    border-radius: var(--toggle-line-border-radius);
+    width: 60%;
+    background-color: #fff;
+    transition: transform .3s ease-out;
+}
+.redes::after {
+    transform: rotate(90deg);
+}
+
+.redes--active::before{
+    transform: rotate(405deg);
+}
+.redes--active::after {
+    transform: rotate(495deg);
+}
+
+@keyframes redes {
+    to {transform: scale(1.1);}
+}
+
+.redes--container {
+    position: fixed;
+    bottom: 5.5em;
+    width: 4em;
+    display: flex;
+    flex-direction: column;
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    transition: transform .2s ease-out;
+}
+.redes--container--show {
+    transform: scale(1);
+}
+.button-redes {
+    display: inline-block;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: .5em;
+}
+
+.button-whatsapp {
+    background-image: url(../images/whatsapp-brands.svg);
+    background-size: 45px;
+    background-color: #25d366;
+}
+.button-facebook {
+    background-image: url(../images/facebook-f-brands.svg);
+    background-size: 30px;
+    background-color: #3b5998 ;
+}
+.button-github {
+    background-image: url(../images/github-alt-brands.svg);
+    background-size: 45px;
+    background-color: #222;
+}
+.button-linkedin {
+    background-image: url(../images/linkedin-in-brands.svg);
+    background-size: 40px;
+    background-color: #0e76a8;
+}
+
+@media only screen and (min-width: 600px) {
+    .banner {
+        height: 400px;
+    }
+    .wrapper {
+        max-width: 80%;
+    }
+    .technologies__wrapper,
+    .projects__wrapper {
+        align-items: center;
+    }
+    .card {
+        width: 400px;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .banner {
+        height: 450px;
+    }
+    .wrapper {
+        max-width: 90%;
+    }
+    .i-am__wrapper {
+        flex-direction: row;
+        border-top: none;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .i-am__img {
+        flex: 1;
+        padding-left: .5em;
+        padding-right: .5em;
+    }
+    .i-am__description {
+        flex: 1;
+        padding-left: .5em;
+        padding-right: .5em;
+    }
+    .technologies__wrapper,
+    .projects__wrapper {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+    .card {
+        max-width: 300px;
+        width: 35%;
+        margin-right: 1em;
+    }
+    .card:last-child {
+        margin-right: 0;
+    }
+    .footer {
+        padding: 1.5em;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .banner {
+        height: 450px;
+    }
+    .wrapper {
+        max-width: 90%;
+    }
+    .main-nav {
+        position: static;
+        width: auto;
+        height: var(--header-height);
+        box-shadow: none;
+        transform: translateX(0);
+    }
+    .menulist {
+        display: flex;
+        padding: 0;
+        height: inherit;
+    }
+    .menulist__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 .5em;
+    }
+    .menulist__item:last-child {
+        padding-right: 0;
+    }
+    .menulist__link:hover {
+        color: darkcyan;
+    }
+    .button-toggle {
+        display: none;
+    }
+    .i-am__img {
+        margin-right: 2em;
+    }
+    .card:hover .card__img {
+        transform: scale(1.15);
+    }
+    .technologies__wrapper,
+    .projects__wrapper {
+        justify-content: space-around;
+    }
+}
+@media only screen and (min-width: 1240px) {
+    :root {
+        font-size: 1rem;
+    }
+    .banner {
+        height: 500px;
+    }
+    .background-banner::before {
+        font-size: 3rem;
+    }
+    .background-banner::after {
+        font-size: 1.25rem;
+    }
+    .wrapper {
+        max-width: 1200px;
+    }
+}

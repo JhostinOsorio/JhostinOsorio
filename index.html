@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhostin Osorio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper flex-header">
+            <!-- <h1 class="logo"><a href="/" class="logo">Jhostin Osorio</a></h1> -->
+            <a href="/" class="logo"><img class="logo__img" src="images/logo.png" alt="Jhostin Osorio"></a>
+            <nav class="main-nav" id="main-nav">
+                <ul class="menulist">
+                    <li class="menulist__item"><a href="#start" class="menulist__link">Inicio</a></li>
+                    <li class="menulist__item"><a href="#i-am" class="menulist__link">¿Quien soy?</a></li>
+                    <li class="menulist__item"><a href="#technologies" class="menulist__link">Skills</a></li>
+                    <li class="menulist__item"><a href="#projects" class="menulist__link">Proyectos</a></li>
+                </ul>
+            </nav>
+            <div class="button-toggle" id="button-toggle">
+                <span class="toggle-line"></span>
+            </div>
+        </div>
+    </header>
+    <section class="banner" id="start">
+        <div class="background-banner"></div>
+    </section>
+    <main class="main" id="i-am">
+        <article class="article i-am">
+            <div class="wrapper i-am__wrapper">
+                <img class="i-am__img" src="images/coding_.svg" alt="¿Quíen soy?">
+                <section class="i-am__description">
+                    <h2 class="description__title">¿Quien soy?</h2>
+                    <p class="description__text">Mi nombre es Jhostin Osorio, tengo 22 años y soy Tec. en Computación e Informática, dedicado al desarrollo web como programador Back-end aproximadamente hace 1 año. Lo que más me gusta de esta carrera es dar solución a posibles problemas que aparentemente son complicados.</p>
+                    <a href="#technologies" class="btn btn-primary">Ver más</a>
+                </section>
+            </div>
+        </article>
+        <article class="article technologies" id="technologies">
+            <div class="wrapper">
+                <h2 class="technologies__title">Tecnologías que domino</h2>
+                <div class="technologies__wrapper">
+                    <section class="card technologies__frontend">
+                        <section class="card__graphic">
+                            <img class="card__img" src="images/front-end.jpg" alt="Desarrollador Front-end">
+                        </section>
+                        <section class="card__body">
+                            <h3 class="card__title">Front-end</h3>
+                            <p class="card__description">Actualmente para el manejo de información del lado de el cliente, conozco las siguientes tecnologías:</p>
+                            <ul class="card__list">
+                                <li class="card__item">HTML5</li>
+                                <li class="card__item">CSS3</li>
+                                <li class="card__item">JavaScript ECMA6+</li>
+                                <li class="card__item">Bootstrap</li>
+                                <li class="card__item">Vue.js</li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="card technologies__backend">
+                        <section class="card__graphic">
+                            <img class="card__img" src="images/back-end-2.jpg" alt="Programador Back-End">
+                        </section>
+                        <section class="card__body">
+                            <h3 class="card__title">Back-End</h3>
+                            <p class="card__description">Actualmente para el manejo de información del lado de el servidor, conozco las siguientes tecnologías:</p>
+                            <ul class="card__list">
+                                <li class="card__item">Java</li>
+                                <li class="card__item">PHP</li>
+                                <li class="card__item">Laravel</li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="card technologies__dba">
+                        <section class="card__graphic">
+                            <img class="card__img" src="images/database.jpg" alt="Base de Datos">
+                        </section>
+                        <section class="card__body">
+                            <h3 class="card__title">Base de Datos</h3>
+                            <p class="card__description">Actualmente para el control y gestión de la información, conozco las siguientes tecnologías:</p>
+                            <ul class="card__list">
+                                <li class="card__item">Microsoft SQL Server</li>
+                                <li class="card__item">MySQL</li>
+                                <li class="card__item">PostgreSQL</li>
+                            </ul>
+                        </section>
+                    </section>
+                </div>
+            </div>
+        </article>
+        <article class="article projects" id="projects">
+            <div class="wrapper">
+                <h2 class="projects__title">Proyectos realizados</h2>
+                <div class="projects__wrapper">
+                    <section class="card card--shadow project__1">
+                        <section class="card__graphic">
+                            <img class="card__img" src="images/javascript.png" alt="JavaScript">
+                        </section>
+                        <section class="card__body">
+                            <h3 class="card__title">Consumo de API con FETCH</h3>
+                            <p class="card__description">Aplicación que consume información principal respecto a todos los países del mundo. Esta aplicación permite realizar filtros por continente y por nombre.</p>
+                            <a href="#" class="btn btn-primary">Ver</a>
+                        </section>
+                    </section>
+                    <section class="card card--shadow project__2">
+                        <section class="card__graphic">
+                            <img class="card__img" src="images/vuejs.jpg" alt="Vue.js">
+                        </section>
+                        <section class="card__body">
+                            <h3 class="card__title">Página Reactiva con Vue</h3>
+                            <p class="card__description">Página Web reactiva consumiendo API de Marvel con la librería Axios. Esta aplicación permite realizar filtros por nombre y habilidades.</p>
+                            <a href="#" class="btn btn-primary">Ver</a>
+                        </section>
+                    </section>
+                    <section class="card card--shadow project__3">
+                        <section class="card__graphic">
+                            <img class="card__img" src="images/laravel_and_vue.png" alt="Laravel y Vue.js">
+                        </section>
+                        <section class="card__body">
+                            <h3 class="card__title">CRUD de Libros con Laravel y Vue</h3>
+                            <p class="card__description">Sistema web de registro de libros desarrollado de forma reactiva utilizando del lado del servidor PHP (Laravel) y del lado del cliente JavaScript(Vue.js)</p>
+                            <a href="#" class="btn btn-primary">Ver</a>
+                        </section>
+                    </section>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer class="footer">
+        <div class="wrapper">
+            <p class="copy-right">&copy;JhostinOsorio <span id="year"></span> - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <div class="redes" id="redes">
+        <div class="redes--container" id="redes--container">
+            <a href="https://api.whatsapp.com/send?phone=+51938329877&text=Hola Jhostin Osorio, quisiera realizar una consulta." class="button-redes button-whatsapp"></a>
+            <a href="https://www.facebook.com/jhostin.osoriomacazana/" class="button-redes button-facebook"></a>
+            <a href="https://github.com/JhostinOsorio" class="button-redes button-github"></a>
+            <a href="https://www.linkedin.com/in/jhostin-estefano-osorio-macazana-89a234169/" class="button-redes button-linkedin"></a>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
