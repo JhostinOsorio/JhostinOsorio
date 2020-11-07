@@ -266,7 +266,7 @@ body {
 }
 .background-banner::after {
     padding: .5em 1.5em;
-    content: 'Te inivito a revisarlo para que me conozcas un poco más.';
+    content: 'Te invito a revisarlo para que me conozcas un poco más.';
     text-align: center;
     color: var(--contrast-color);
     font-size: 1rem;
