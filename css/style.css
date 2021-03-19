@@ -470,6 +470,7 @@ body {
 
 .redes {
     position: fixed;
+    z-index: 100;
     bottom: 1.5em;
     right: 1em;
     width: 4em;
@@ -647,6 +648,13 @@ body {
     .button-toggle {
         display: none;
     }
+    .background-title {
+        font-weight: 500;
+        font-size: 2rem;
+    }
+    .background-description {
+        font-size: 1.25rem;
+    }
     .i-am__img {
         margin-right: 2em;
     }
@@ -665,11 +673,12 @@ body {
     .banner {
         height: 500px;
     }
-    .background-banner::before {
+    .background-title {
+        font-weight: 500;
         font-size: 3rem;
     }
-    .background-banner::after {
-        font-size: 1.25rem;
+    .background-description {
+        font-size: 1.3rem;
     }
     .wrapper {
         max-width: 1200px;
